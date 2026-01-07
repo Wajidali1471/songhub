@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" type="image/png" href="favicon/favicon.ico512.png">
+    <!-- /logo4_v2.png
+ -->
+
+
+
+
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container flex bg-black">
+
+        <!-- ===== LEFT ===== -->
+        <div class="left">
+
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="hamburger-close">X</div>
+
+                <div class="logo">
+                    <img src="images/logo4.png" alt="logo">
+                </div>
+
+                <ul>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="">About Us</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="">Sevices</a>
+                    </li>
+
+
+                </ul>
+
+                <!-- SEARCH BOX (UL se bahar) -->
+
+            </div>
+
+            <!-- ===== Library ===== -->
+            <div class="library bg-grey rounded m-1 p-1">
+
+                <div class="heading">
+                    <img class="invert" src="images/playlist.svg" alt="">
+                    <h2>Your Library</h2>
+
+                </div>
+
+                <div class="songList">
+                    <ul class="w"></ul>
+                </div>
+
+                <div class="footer">
+                    <div><a href="#">About Us</a></div>
+                    <div><a href="#">Privacy Policy</a></div>
+                    <div><a href="#">Cookies</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT ===== -->
+        <div class="right bg-grey rounded">
+
+            <div class="header">
+                <div class="hamburgerContainer">
+
+                    <img width="30" class="invert hamburger" src="images/hamburger.svg" alt="">
+                </div>
+
+
+                <div class="buttons">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
+            </div>
+            <!-- ===== Right Box Content ===== -->
+            <div class="box bg-dark rounded p-4 m-3">
+                <h2>About Waji Music Player</h2>
+                <p>
+                    Waji Music Player is a web-based music streaming platform where you can search and play your
+                    favorite songs in Urdu, Hindi, Punjabi, and Sufi genres.
+                    Our goal is to bring a seamless listening experience directly to your browser.
+                </p>
+
+                <h2>Features</h2>
+                <ul>
+                    <li>Search and play songs instantly</li>
+                    <li>Create your own library of favorite tracks</li>
+                    <li>Responsive design for desktop and mobile</li>
+                    <li>Custom playlists and easy navigation</li>
+                </ul>
+
+                <h2>Contact Us</h2>
+                <p>
+                    For inquiries, feedback, or support, reach us at:
+                    <a href="mailto:info@wajimusicplayer.com" style="color: #1db954;">info@wajimusicplayer.com</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+<script>/  Hamburger menu  //
+document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector(".left").style.left = "0";
+});
+document.querySelector(".hamburger-close").addEventListener("click", () => {
+    document.querySelector(".left").style.left = "-120%";
+});
+
+let searchBtn = document.querySelector(".search_btn");
+let searchBox = document.querySelector(".search-box");
+let closeBtn = document.querySelector(".search-box-close");
+
+/* START STATE */
+searchBox.style.display = "none";
+closeBtn.style.display = "none";
+
+/* SEARCH CLICK */
+searchBtn.addEventListener("click", () => {
+    searchBtn.style.display = "none";
+    searchBox.style.display = "block";
+    closeBtn.style.display = "inline";
+});
+
+/* CLOSE CLICK */
+closeBtn.addEventListener("click", () => {
+    searchBox.style.display = "none";
+    closeBtn.style.display = "none";
+    searchBtn.style.display = "flex";
+});</script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" type="image/png" href="favicon/favicon.ico512.png">
+    <!-- /logo4_v2.png
+ -->
+
+
+
+
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container flex bg-black">
+
+        <!-- ===== LEFT ===== -->
+        <div class="left">
+
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="hamburger-close">X</div>
+
+                <div class="logo">
+                    <img src="images/logo4.png" alt="logo">
+                </div>
+
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="about.html">About Us</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="">Sevices</a> 
+                    </li>
+
+                    <li class="search_btn">
+                        🔍 Search
+                    </li>
+                </ul>
+
+                <!-- SEARCH BOX (UL se bahar) -->
+                <div class="search-box">
+                    <input id="searchInput" placeholder="Search song (love, rock...)">
+                    <button class="h" onclick="searchSongs()">Search</button>
+                    <button class="search-box-close">X</button>
+                </div>
+            </div>
+
+            <!-- ===== Library ===== -->
+            <div class="library bg-grey rounded m-1 p-1">
+
+                <div class="heading">
+                    <img class="invert" src="images/playlist.svg" alt="">
+                    <h2>Your Library</h2>
+
+                </div>
+
+                <div class="songList">
+                    <ul class="w"></ul>
+                </div>
+
+                <div class="footer">
+                    <div><a href="#">About Us</a></div>
+                    <div><a href="#">Privacy Policy</a></div>
+                    <div><a href="#">Cookies</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RIGHT ===== -->
+        <div class="right bg-grey rounded">
+
+            <div class="header">
+                <div class="hamburgerContainer">
+
+                    <img width="30" class="invert hamburger" src="images/hamburger.svg" alt="">
+                </div>
+
+
+                <div class="buttons">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
+            </div>
+
+            <div class="spotifyPlaylists">
+                <h1>Songs Playlists</h1>
+
+                <!-- SONG CARDS -->
+                <div id="songs" class="songs"></div>
+            </div>
+
+            <!-- PLAYBAR -->
+            <div class="playbar">
+                <audio id="audioPlayer" controls></audio>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

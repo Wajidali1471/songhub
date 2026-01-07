@@ -4,147 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waji Music Player</title>
-    <link rel="icon" type="image/png" href="images/logo4.png">
+    <title>about songhub</title>
+    <link rel="icon" type="image/png" href="favicon/favicon2.ico.png">
+    <!-- /logo4_v2.png
+ -->
 
+
+
+
+
+
+    <link rel="stylesheet" href="css/app.css">
     <style>
-        /* ===== Reset & base ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #0f172a;
-            color: #f2f2f2;
-        }
-
-        a {
-            color: #1db954;
-            text-decoration: none;
-        }
-
-        /* ===== Container ===== */
-        .container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* ===== LEFT Sidebar ===== */
-        .left {
-            width: 250px;
-            background-color: #1e293b;
-            position: fixed;
-            top: 0;
-            left: -300px;
-            height: 100%;
-            overflow-y: auto;
-            transition: 0.3s;
-            padding: 20px;
-            z-index: 100;
-        }
-
-        .left .logo img {
-            width: 150px;
-            display: block;
-            margin: 0 auto 20px;
-        }
-
-        .left ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .left ul li {
-            margin: 15px 0;
-        }
-
-        .left ul li a {
-            color: #cbd5e1;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .left ul li a:hover {
-            color: #1db954;
-        }
-
-        .hamburger-close {
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        /* ===== Library Box ===== */
-        .library {
-            background-color: #111827;
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .library h2 {
-            color: #1db954;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .library ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .library ul li {
-            padding: 8px 12px;
-            margin: 8px 0;
-            background-color: #1f2937;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .library ul li:hover {
-            background-color: #1db954;
-            color: #0f172a;
-        }
-
-        /* ===== RIGHT main content ===== */
-        .right {
-            margin-left: 250px;
-            flex: 1;
-            padding: 20px 40px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .buttons button {
-            background-color: #1db954;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .buttons button:hover {
-            background-color: #17a44d;
-        }
-
-        /* ===== Right Box (About/Features/Contact) ===== */
         .box {
-            background-color: #1e293b;
+            background-color: #171e29;
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
@@ -181,13 +54,17 @@
         }
 
         /* ===== Footer ===== */
-        footer {
+   
+     footer {
             text-align: center;
             padding: 15px;
             margin-top: 40px;
-            color: #94a3b8;
+            color: #34588b;
         }
 
+        footer a {
+            color: red;
+        }
         /* ===== Responsive ===== */
         @media (max-width: 900px) {
             .container {
@@ -199,77 +76,115 @@
             }
         }
     </style>
+
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="container flex bg-black">
 
-        <!-- LEFT Sidebar -->
+        <!-- ===== LEFT ===== -->
         <div class="left">
-            <div class="hamburger-close">✖</div>
 
-            <div class="logo">
-                <img src="images/logo.png" alt="Songhub Logo">
+            <div style=" background-color: #171e29;" class="home bg-grey rounded m-1 p-1">
+                <div class="hamburger-close">X</div>
+
+                <div class="logo">
+                    <img src="images/head_logo.png" alt="logo">
+                </div>
+
+                <ul>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+                    <li>
+                        <a style="color: rgb(75, 75, 72);" href="">Sevices</a>
+                    </li>
+
+                   
+                </ul>
+
+                <!-- SEARCH BOX (UL se bahar) -->
+
             </div>
 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-            </ul>
+            <!-- ===== Library ===== -->
+            <div style=" background-color: #171e29;" class="library bg-grey rounded m-1 p-1">
 
-            <!-- Library Box -->
-            <div class="library">
-                <h2>Your Library</h2>
-                <ul>
-                    <li>Song 1 - Artist A</li>
-                    <li>Song 2 - Artist B</li>
-                    <li>Song 3 - Artist C</li>
-                    <li>Song 4 - Artist D</li>
-                </ul>
+                <div class="heading">
+
+                    <h2>About the Developer</h2>
+                </div>
+                <div class="intro">
+
+                    <p>
+                        I'm <strong>Wajid Ali</strong>, a self-motivated web developer from Pakistan.
+                        I believe skills can change lives, and this music player is part of my journey
+                        to become a stronge web developer.
+                        This is my protofile link <a style="color: #1db954;" href="My Protofile/index.html">Open My
+                            Protofile</a>
+
+                    </p>
+                </div>
+
+
+
+
+
+
+
             </div>
         </div>
 
-        <!-- RIGHT Main Content -->
-        <div class="right">
+        <!-- ===== RIGHT ===== -->
+        <div class="right bg-grey rounded">
 
             <div class="header">
+                <div class="hamburgerContainer">
+
+                    <img width="30" class="invert hamburger" src="images/hamburger.svg" alt="">
+                </div>
+
+
                 <div class="buttons">
-                    <button class="signupbtn">Sign Up</button>
-                    <button class="loginbtn">Log In</button>
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
                 </div>
             </div>
 
-            <!-- Right Box Content -->
-            <div id="about" class="box">
-                <h2>About Waji Music Player</h2>
-                <p>
-                    Waji Music Player is a web-based music streaming platform where you can search and play your
-                    favorite songs in Urdu, Hindi, Punjabi, and Sufi genres.
-                    Our goal is to bring a seamless listening experience directly to your browser.
-                </p>
+
+            <div class="container2">
+                <!-- Right Box Content -->
+                <div id="about" class="box">
+                    <h2>About Songhub</h2>
+                    <p>
+                       Songhub is a web-based music streaming platform where you can search and play your
+                        favorite songs in Urdu, Hindi, Punjabi, and Sufi genres.
+                        Our goal is to bring a seamless listening experience directly to your browser.
+                    </p>
+                </div>
+
+                <div id="services" class="box">
+                    <h2>Features</h2>
+                    <ul>
+                        <li>Search and play songs instantly</li>
+                        <li>Create your own library of favorite tracks</li>
+                        <li>Responsive design for desktop and mobile</li>
+                        <li>Custom playlists and easy navigation</li>
+                    </ul>
+
+                    <h2>Contact Us</h2>
+                    <p>
+                        For inquiries, feedback, or support, reach us at:
+                        <a style="color: #1db954;" href="mailto:wajidbahi006gmial.com">info@songhub@gmail.com</a>
+                    </p>
+                </div>
+                <footer>songhub by Wajid Ali &copy; 2026 | All Rights Reserved
+                </footer>
             </div>
-
-            <div id="services" class="box">
-                <h2>Features</h2>
-                <ul>
-                    <li>Search and play songs instantly</li>
-                    <li>Create your own library of favorite tracks</li>
-                    <li>Responsive design for desktop and mobile</li>
-                    <li>Custom playlists and easy navigation</li>
-                </ul>
-
-                <h2>Contact Us</h2>
-                <p>
-                    For inquiries, feedback, or support, reach us at:
-                    <a href="mailto:info@wajimusicplayer.com">info@wajimusicplayer.com</a>
-                </p>
-            </div>
-
-            <footer>
-                &copy; 2026 Waji Music Player | All Rights Reserved
-            </footer>
 
         </div>
     </div>
@@ -281,14 +196,13 @@
         const closeBtn = document.querySelector(".hamburger-close");
 
         closeBtn.addEventListener("click", () => {
-            leftSidebar.style.left = "-300px";
+            leftSidebar.style.left = "-900px";
         });
 
         hamburger?.addEventListener("click", () => {
             leftSidebar.style.left = "0";
         });
     </script>
-
 </body>
 
 </html>

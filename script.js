@@ -59,10 +59,10 @@ async function searchSongs(defaultQuery) {
             card.innerHTML = `
                 <img src="${image}">
                
-                        <img id="hover_logo" src="logo3.png" alt="" >
+                        <img id="hover_logo" src="images/logo3.png" alt="" >
                 <h3>${song.name}   
                 
-                <mark>by Waji Music</mark>
+                <mark>by Songhub</mark>
                 </h3>
                 <p>${song.artist_name}</p>
                 <button class="btn" data-audio="${song.audio}">▶ Play</button>

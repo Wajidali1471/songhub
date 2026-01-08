@@ -116,6 +116,12 @@ li a {
     /* overflow: scroll; */
 
 }
+li button{
+    cursor: pointer;
+}
+.w li {
+    overflow: hidden;
+}
 
 .heading {
     display: flex;
@@ -515,6 +521,9 @@ audio {
 .heading h2{
     color: white;
     font-size: 38px;
+}
+.playbar{
+    width: 90%;
 }
 }
 

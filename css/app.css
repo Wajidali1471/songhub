@@ -287,7 +287,7 @@ li a {
     }
 
     .card {
-        width: 70%;
+        width: 80%;
     }
 }
 
@@ -333,3 +333,13 @@ li a {
 .p-1 {
     padding: 10px;
 }
+  footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            color: #34588b;
+        }
+
+        footer a {
+            color: red;
+        }

@@ -1,168 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wajid Ali - Frontend Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f2f2f2;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wajid Ali - Frontend Portfolio</title>
 
-        header {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
+<link rel="icon" type="image/png" href="images/favicon.png">
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+<style>
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        header p {
-            font-size: 1.2rem;
-        }
+body{
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    line-height:1.6;
+}
 
-        section {
-            padding: 50px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+/* ===== HEADER ===== */
+header{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #0f172a;
-        }
+header h1{
+    font-size:2.5rem;
+}
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
+header p{
+    font-size:1.2rem;
+    margin-top:10px;
+}
 
-        .project {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(193, 141, 141, 0.1);
-        }
+/* ===== SECTIONS ===== */
+section{
+    padding:50px 20px;
+    max-width:1200px;
+    margin:auto;
+}
 
-        .project img {
-            width: 100%;
-            border-radius: 10px;
-        }
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0f172a;
+}
 
-        .project h3 {
-            margin-top: 10px;
-        }
+/* ===== PROJECTS ===== */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
+.project{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:transform .3s ease;
+}
 
-        .skill {
-            background: #0f172a;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
+.project:hover{
+    transform:translateY(-5px);
+}
 
-        footer {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
+.project img{
+    width:100%;
+    height:auto;
+    border-radius:10px;
+}
 
-        a {
-            color: #3b82f6;
-            text-decoration: none;
-        }
-    </style>
+.project h3{
+    margin-top:15px;
+    font-size:1.2rem;
+}
+
+.project p{
+    margin-top:10px;
+    font-size:1rem;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.skill{
+    background:#0f172a;
+    color:white;
+    padding:12px 22px;
+    border-radius:8px;
+    font-size:1rem;
+}
+
+/* ===== CONTACT ===== */
+.content{
+    font-size:2rem;
+}
+
+section p{
+    text-align:center;
+    font-size:1rem;
+    margin:10px 0;
+}
+
+a{
+    color:#3b82f6;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.social-link img,
+.tiktok-link img{
+    width:20px;
+    vertical-align:middle;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:1rem;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+    header h1{
+        font-size:2rem;
+    }
+
+    header p{
+        font-size:1.1rem;
+    }
+
+    h2{
+        font-size:1.8rem;
+    }
+
+    .project h3{
+        font-size:1.1rem;
+    }
+
+    .project p{
+        font-size:1rem;
+    }
+
+    .skill{
+        font-size:0.95rem;
+    }
+
+    section p{
+        font-size:1rem;
+    }
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width:480px){
+    header h1{
+        font-size:1.8rem;
+    }
+
+    header p{
+        font-size:1rem;
+    }
+
+    .skills{
+        gap:10px;
+    }
+
+    .skill{
+        padding:10px 18px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Wajid Ali</h1>
-        <p>Frontend Developer | HTML | CSS | JavaScript</p>
-    </header>
+<header>
+    <h1>Wajid Ali</h1>
+    <p>Frontend Developer | HTML | CSS | JavaScript</p>
+</header>
 
-    <section>
-        <h2>My Projects</h2>
-        <div class="projects">
-            <div class="project">
-                <img src="images/Songhub.png" alt="Songhub Music Player">
-                <h3>Songhub Music Player</h3>
-                <p>Live Project: <a href="https://Wajidali1471.github.io/Songhub/" target="_blank">Open Songhub</a></p>
-            </div>
-            <div class="project">
-                <img src="images/netflix.png" alt="Songhub Music Player">
-                <h3>Netflix Clon</h3>
-                </p>
-            </div>
-            <div class="project">
-                <img src="images/Pk_Navy.png" alt="Songhub Music Player">
-                <h3>Pakistan Navy Website Clon</h3>
-                </p>
-            </div>
-            <div class="project">
-                <img src="images/icoder.png" alt="Songhub Music Player">
-                <h3>ICoder with Bootstarp</h3>
-                </p>
-            </div>
-            <!-- Add more projects here -->
+<section>
+    <h2>My Projects</h2>
+    <div class="projects">
+        <div class="project">
+            <img src="images/Songhub.png">
+            <h3>Songhub Music Player</h3>
+            <p><a href="https://Wajidali1471.github.io/Songhub/" target="_blank">Open Project</a></p>
         </div>
-    </section>
 
-    <section>
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Git & GitHub</div>
-            <div class="skill">Bootstarp</div>
+        <div class="project">
+            <img src="images/netflix.png">
+            <h3>Netflix Clone</h3>
         </div>
-    </section>
 
-    <section>
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:wajidbahi006@gmail.com">wajidbahi006@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/Wajidali1471" target="_blank">github.com/Wajidali1471</a></p>
-      <p>Follow me on:
-        <a style="color:black;" href="https://www.tiktok.com/@
-wajid_khan032" target="_blank" class="tiktok-link">
-&nbsp;
-      Tik<img src="images/tiktok.svg" alt="TikTok Logo">ok
+        <div class="project">
+            <img src="images/Pk_Navy.png">
+            <h3>Pakistan Navy Website Clone</h3>
+        </div>
+
+        <div class="project">
+            <img src="images/icoder.png">
+            <h3>ICoder (Bootstrap)</h3>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">Bootstrap</div>
+    </div>
+</section>
+
+<section>
+    <h2 class="content">Contact Me</h2>
+    <p>Email: <a href="mailto:wajidbahi006@gmail.com">wajidbahi006@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Wajidali1471" target="_blank">github.com/Wajidali1471</a></p>
+
+    <p>
+        TikTok:
+        <a style="color: black;" class="tiktok-link" href="https://www.tiktok.com/@wajid_khan032" target="_blank">
+          Ti  <img src="images/tiktok.svg">ok
         </a>
-      </p>
-      <p>
-        Follow me on:&nbsp;&nbsp;
-         <a style="color: black;" href="https://www.facebook.com/Meda Sohna Punjab" target="_blank" class="social-link">
-        <img src="images/facebook.svg" alt="Facebook Logo">
-        acebook
-    </a>
-      </p>
-    </section>
+    </p>
 
-    <footer>
-        <p>&copy; 2026 Wajid Ali | Frontend Portfolio</p>
-    </footer>
+    <p>
+        Facebook:
+        <a class="social-link" href="https://www.facebook.com/Meda Sohna Punjab" target="_blank">
+            <img src="images/facebook.svg"> Facebook
+        </a>
+    </p>
+</section>
 
+<footer>
+    <p>© 2026 Wajid Ali | Frontend Portfolio</p>
+</footer>
 
 </body>
-
 </html>

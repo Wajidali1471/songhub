@@ -55,7 +55,7 @@ async function searchSongs(defaultQuery) {
                 <img id="hover_logo" src="images/logo3.png" alt="" >
                 <h3>${song.name}<mark>by Songhub</mark></h3>
                 <p>${song.artist_name}</p>
-                <button class="btn" data-audio="${song.audio}">▶ Play</button>
+                <button class="btn" data-audio="${song.audio}">Play</button>
             `;
 
             const playBtn = card.querySelector("button");
@@ -131,9 +131,9 @@ closeBtn.addEventListener("click", () => {
 });
 
 // ====== SEARCH FORM SUBMIT ======
-searchForm.addEventListener("submit", (e) => {
+searchForm.addEventListener("click", (e) => {
     e.preventDefault();
-    searchSongs(); 
+    searchSongs();
 });
 
 // ====== RANDOM DEFAULT SEARCH ======

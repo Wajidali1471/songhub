@@ -122,14 +122,18 @@ searchForm.addEventListener("submit", (e) => {
 });
 const randomSongs = [
     "punjabi",
-    "atif aslam",
+    
     "arijit singh",
-    "rahat fateh ali khan",
-    "neha kakkar",
-    "sidhu moose wala",
-    "nusrat fateh ali khan",
+    "arijit singh",
+    "arijit singh",
+    "arijit singh",
     "romantic",
     "sad",
+    "sufi",
+    "wa",
+    "sultan"
+    ,
+
     "lofi"
 ];
 function getRandomSong() {

@@ -147,6 +147,45 @@
             </div>
         </div>
     </div>
+
+    <!-- ================= -->
+     <!-- Profile Update Modal -->
+<div class="modal fade" id="profileUpdateModal" tabindex="-1" aria-labelledby="profileUpdateLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="profileUpdateLabel">Update Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="updateProfileForm">
+          <div class="mb-3">
+            <label for="updateFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="updateFirstName" required>
+          </div>
+          <div class="mb-3">
+            <label for="updateLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="updateLastName" required>
+          </div>
+          <div class="mb-3">
+            <label for="updatePassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="updatePassword">
+          </div>
+          <div class="mb-3">
+            <label for="updateReason" class="form-label">Why you use Songhubb</label>
+            <input type="text" class="form-control" id="updateReason">
+          </div>
+          <div class="mb-3">
+            <label for="updatePhoto" class="form-label">Profile Photo</label>
+            <input type="file" class="form-control" id="updatePhoto">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- ================================================================== -->
 
     <!-- Modal -->

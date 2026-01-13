@@ -1,15 +1,16 @@
 // ================== script.js ==================
 
-// DOM Elements
-const loginForm = document.querySelector('#Wajid form'); 
+// Grab DOM elements safely
 const loginModalEl = document.getElementById('Wajid');
-const loginModal = new bootstrap.Modal(loginModalEl);
+const loginForm = loginModalEl?.querySelector('form');
+const loginModal = loginModalEl ? new bootstrap.Modal(loginModalEl) : null;
+
 const loginBtn = document.querySelector('button[data-bs-target="#Wajid"]');
 const signupBtn = document.querySelector('button.btn-outline-primary');
 const navContainer = document.querySelector('.d-flex.align-items-center');
 
 const profileUpdateModalEl = document.getElementById('profileUpdateModal');
-const profileUpdateModal = new bootstrap.Modal(profileUpdateModalEl);
+const profileUpdateModal = profileUpdateModalEl ? new bootstrap.Modal(profileUpdateModalEl) : null;
 const updateProfileForm = document.getElementById('updateProfileForm');
 const updateFirstName = document.getElementById('updateFirstName');
 const updateLastName = document.getElementById('updateLastName');
@@ -17,7 +18,9 @@ const updatePassword = document.getElementById('updatePassword');
 const updateReason = document.getElementById('updateReason');
 const updatePhoto = document.getElementById('updatePhoto');
 
-// Helper: random color
+// ================= Helper Functions =================
+
+// Random color for avatar
 function getRandomColor() {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -32,20 +35,17 @@ function fileToBase64(file, callback) {
     reader.readAsDataURL(file);
 }
 
-// Display user avatar and name button
+// ================= Display User in Navbar =================
 function displayUser(user) {
-    loginBtn.style.display = 'none';
-    signupBtn.style.display = 'none';
+    if (!navContainer) return;
 
-    // Remove old avatar & name button if exists
-    const oldAvatar = document.querySelector('.user-avatar');
-    if (oldAvatar) oldAvatar.remove();
-    const oldNameBtn = document.querySelector('.user-name-btn');
-    if (oldNameBtn) oldNameBtn.remove();
-    const oldDetailBox = document.querySelector('.user-detail-box');
-    if (oldDetailBox) oldDetailBox.remove();
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (signupBtn) signupBtn.style.display = 'none';
 
-    // Create avatar circle
+    // Remove old elements
+    document.querySelectorAll('.user-avatar, .user-name-btn, .user-detail-box').forEach(el => el.remove());
+
+    // Avatar
     const avatar = document.createElement('div');
     avatar.classList.add('user-avatar');
     avatar.style.width = '40px';
@@ -60,7 +60,6 @@ function displayUser(user) {
     avatar.title = `${user.firstName} ${user.lastName}`;
     avatar.style.flexShrink = '0';
 
-    // Photo or first letter
     if (user.photo) {
         avatar.style.backgroundImage = `url(${user.photo})`;
         avatar.style.backgroundSize = 'cover';
@@ -73,7 +72,7 @@ function displayUser(user) {
         avatar.textContent = user.firstName.charAt(0).toUpperCase();
     }
 
-    // Create Name Button (bold & stylish)
+    // Name button
     const nameBtn = document.createElement('button');
     nameBtn.textContent = `${user.firstName} ${user.lastName}`;
     nameBtn.classList.add('user-name-btn');
@@ -92,7 +91,7 @@ function displayUser(user) {
     nameBtn.addEventListener('mouseenter', () => nameBtn.style.background = 'rgba(255,255,255,0.1)');
     nameBtn.addEventListener('mouseleave', () => nameBtn.style.background = 'none');
 
-    // Detail Box for full info
+    // Detail Box
     const detailBox = document.createElement('div');
     detailBox.classList.add('user-detail-box');
     detailBox.style.position = 'absolute';
@@ -118,92 +117,98 @@ function displayUser(user) {
     `;
     document.body.appendChild(detailBox);
 
-    // Toggle detail box on name button click
+    // Toggle detail box
     nameBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         detailBox.style.display = detailBox.style.display === 'none' ? 'block' : 'none';
     });
 
-    // Hide box if click outside
+    // Hide when clicking outside
     document.addEventListener('click', (e) => {
         if (!detailBox.contains(e.target) && e.target !== nameBtn) {
             detailBox.style.display = 'none';
         }
     });
 
-    // Edit Info button → open modal
-    detailBox.querySelector('#editProfileBtn').addEventListener('click', () => {
+    // Edit Profile
+    detailBox.querySelector('#editProfileBtn')?.addEventListener('click', () => {
         updateFirstName.value = user.firstName;
         updateLastName.value = user.lastName;
         updatePassword.value = '';
         updateReason.value = user.reason;
         updatePhoto.value = '';
-        profileUpdateModal.show();
+        profileUpdateModal?.show();
     });
 
     // Logout
-    detailBox.querySelector('#logoutBtn').addEventListener('click', () => {
+    detailBox.querySelector('#logoutBtn')?.addEventListener('click', () => {
         localStorage.removeItem('songhubbUser');
         avatar.remove();
         nameBtn.remove();
         detailBox.remove();
-        loginBtn.style.display = 'inline-block';
-        signupBtn.style.display = 'inline-block';
+        if (loginBtn) loginBtn.style.display = 'inline-block';
+        if (signupBtn) signupBtn.style.display = 'inline-block';
     });
 
-    // Append avatar and name button
+    // Append to navbar
     navContainer.appendChild(avatar);
     navContainer.appendChild(nameBtn);
 
-    // Modal form submit
-    updateProfileForm.onsubmit = (e) => {
-        e.preventDefault();
-        user.firstName = updateFirstName.value.trim();
-        user.lastName = updateLastName.value.trim();
-        if (updatePassword.value) user.password = updatePassword.value;
-        user.reason = updateReason.value.trim();
+    // Profile Update Form Submit
+    if (updateProfileForm) {
+        updateProfileForm.onsubmit = (e) => {
+            e.preventDefault();
+            user.firstName = updateFirstName.value.trim();
+            user.lastName = updateLastName.value.trim();
+            if (updatePassword.value) user.password = updatePassword.value;
+            user.reason = updateReason.value.trim();
 
-        if (updatePhoto.files.length > 0) {
-            fileToBase64(updatePhoto.files[0], (base64) => {
-                user.photo = base64;
+            if (updatePhoto.files.length > 0) {
+                fileToBase64(updatePhoto.files[0], (base64) => {
+                    user.photo = base64;
+                    saveAndRefresh();
+                });
+            } else {
                 saveAndRefresh();
-            });
-        } else {
-            saveAndRefresh();
-        }
+            }
 
-        function saveAndRefresh() {
-            localStorage.setItem('songhubbUser', JSON.stringify(user));
-            profileUpdateModal.hide();
-            displayUser(user);
-        }
-    };
+            function saveAndRefresh() {
+                localStorage.setItem('songhubbUser', JSON.stringify(user));
+                profileUpdateModal?.hide();
+                displayUser(user);
+            }
+        };
+    }
 }
 
-// Load saved user on page load
+// ================= On Page Load =================
 window.addEventListener('DOMContentLoaded', () => {
     const savedUser = JSON.parse(localStorage.getItem('songhubbUser'));
-    if (savedUser) displayUser(savedUser);
+    if (savedUser && navContainer) displayUser(savedUser);
 });
 
-// Handle login form submit
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// ================= Login Form Submit =================
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    const firstName = loginForm.querySelector('input[placeholder="First Name"]').value.trim();
-    const lastName = loginForm.querySelector('input[placeholder="Last Name"]').value.trim();
-    const email = loginForm.querySelector('#inputEmail').value.trim();
-    const password = loginForm.querySelector('#inputPassword').value.trim();
-    const confirmPassword = loginForm.querySelector('#inputConfirmPassword').value.trim();
-    const gender = loginForm.querySelector('input[name="gender"]:checked')?.value || '';
-    const reason = loginForm.querySelector('#inputZip').value.trim();
+        const firstName = loginForm.querySelector('input[placeholder="First Name"]').value.trim();
+        const lastName = loginForm.querySelector('input[placeholder="Last Name"]').value.trim();
+        const email = loginForm.querySelector('#inputEmail').value.trim();
+        const password = loginForm.querySelector('#inputPassword').value.trim();
+        const confirmPassword = loginForm.querySelector('#inputConfirmPassword').value.trim();
+        const gender = loginForm.querySelector('input[name="gender"]:checked')?.value || '';
+        const reason = loginForm.querySelector('#inputZip').value.trim();
 
-    if (!firstName || !lastName || !email || !password || !confirmPassword || !gender) return alert('Please fill all required fields!');
-    if (password !== confirmPassword) return alert('Passwords do not match!');
+        if (!firstName || !lastName || !email || !password || !confirmPassword || !gender) {
+            return alert('Please fill all required fields!');
+        }
+        if (password !== confirmPassword) return alert('Passwords do not match!');
 
-    const user = { firstName, lastName, email, password, gender, reason, photo: null };
-    localStorage.setItem('songhubbUser', JSON.stringify(user));
-    loginModal.hide();
-    displayUser(user);
-    loginForm.reset();
-});
+        const user = { firstName, lastName, email, password, gender, reason, photo: null };
+        localStorage.setItem('songhubbUser', JSON.stringify(user));
+        loginModal?.hide();
+        displayUser(user);
+        loginForm.reset();
+    });
+}

@@ -42,14 +42,9 @@
                 </ul>
 
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-2" id="searchForm">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            id="searchInput">
-                        <button class="btn btn-outline-success login" type="submit">Search</button>
-                    </form>
-                    <button class="btn btn-outline-success me-2 " data-bs-toggle="modal"
+                   
+                     <button class="btn btn-outline-success me-2 " data-bs-toggle="modal"
                         data-bs-target="#Wajid">Login</button>
-
 
                     <button class="btn btn-outline-primary">Signup</button>
                 </div>
@@ -60,6 +55,93 @@
         </div>
 
     </nav>
+        <div class="modal fade" id="Wajid" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Login</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <form class="row g-3">
+                        <!-- Name Fields -->
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="First Name" aria-label="First Name"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Last Name" aria-label="Last Name"
+                                required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="col-12">
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="col-md-6">
+                            <label for="inputPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="inputPassword" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputConfirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputConfirmPassword" required>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="col-12">
+                            <label class="form-label">Gender</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female"
+                                    required>
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male"
+                                    required>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                        </div>
+
+                        <!-- Query / Interest -->
+
+
+                        <!-- Zip Code -->
+                        <div class="col-md-6">
+                            <label for="inputZip" class="form-label">Why You want to use song hub</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                                <label class="form-check-label" for="termsCheck">
+                                    I agree to the terms and conditions
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <div class="contain my-3">
         <!-- Another Featurette -->
         <div class="project   mb-3 ">
@@ -133,6 +215,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

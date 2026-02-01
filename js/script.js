@@ -1,7 +1,5 @@
-// ================= CONFIG =================
 const CLIENT_ID = "4675c34e";
 
-// ================= ELEMENTS =================
 const audioPlayer = document.getElementById("audioPlayer");
 const playlistUL = document.querySelector(".w");
 const songsRow = document.querySelector(".container2");
@@ -16,7 +14,7 @@ let currentBtn = null;
 // ================= SEARCH SONGS =================
 async function searchSongs(query = "punjabi") {
 
-    // ✅ SHOW LOADING
+    // SHOW LOADING
 songsRow.innerHTML = `
   <div class="text-center my-4">
   <span class="ms-2" style="color:white;">Loading</span>
